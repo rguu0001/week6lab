@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <img src="header.jpg" />
+    </head>
+    <body>
+    <h1> Add new Task</h1> </br>
+    <h2>
+        <a href="/">Add New Task</a>
+        <a href="/alltasks">List All Tasks</a>
+        <a href="/updatetask">Update Task</a>
+        <a href="/deletetaskbyid">Delete Task By Id</a>
+        <a href="/deletetaskbystatus">Delete Task By Status</a>
+    </h2>
+
+        <form action="/addtask" method="POST">
+            Task Name <input type="text" name ="taskName" /> <br />
+            Task Assign To <input type="text" name ="taskAssignTo" /> <br />
+            Task Due Date <input type="date" name ="taskDueDate" /> <br />
+            Task Status <input type="text" name ="taskStatus" /> <br />
+            Task Description <input type="text" name ="taskDescription" /> <br />
+            <button>Submit</button>
+        </form>
+
+    </body>
+</html>
