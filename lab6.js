@@ -86,4 +86,26 @@ app.get('/deletetaskbystatus', function (req, res) {
 
 })
 
+app.get('/deleteOldComplete', function (req, res) {
+    let date = new Date();
+    
+    let day = date.getDate();
+    if (day < 10){
+        day = "0" + day;
+    }
+    let month = date.getMonth() + 1;
+    if (month < 10){
+        month = "0" + month;
+    }
+    let year = date.getFullYear();
+
+    let today = year + "-" + month + "-" + day;
+
+    let query = { $and: [ { taskStatus: "Complete" }, { taskDueDate: { $lt: today } } ] };
+    col.deleteMany(query, function (err, obj) {
+        res.redirect('/alltasks');
+    })
+
+})
+
 app.listen(8080);
